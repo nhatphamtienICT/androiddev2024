@@ -2,15 +2,20 @@ package vn.edu.usth.weather
 
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.ComponentActivity
+
+import androidx.appcompat.app.AppCompatActivity
 
 
-class WeatherActivity : ComponentActivity(){
+class WeatherActivity : AppCompatActivity(){
     private val key = "WeatherActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.i(key,"Create")
+        val firstFragment = ForecastFragment()
+        supportFragmentManager.beginTransaction().add(R.id.main, firstFragment).commit();
     }
+
+
     override fun onStart(){
         super.onStart()
         Log.i(key,"Start")
