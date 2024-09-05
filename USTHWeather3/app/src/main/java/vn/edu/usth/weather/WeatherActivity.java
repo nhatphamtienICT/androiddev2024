@@ -23,9 +23,10 @@ public class WeatherActivity extends AppCompatActivity {
         });
         Log.i(TAG, "Create");
 
+        //delete at practical 6
         ForecastFragment firstFragment = new ForecastFragment();
 
-        getSupportFragmentManager().beginTransaction().add(R.id.main, firstFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main, firstFragment).commit();
     }
 
     @Override

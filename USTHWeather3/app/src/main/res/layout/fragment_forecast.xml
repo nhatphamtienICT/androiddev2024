@@ -1,14 +1,355 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragment_container"
+    android:background="@color/siu"
+    android:orientation="vertical"
     tools:context=".ForecastFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        tools:ignore="UseCompoundDrawables,UselessParent">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Monday"
+            android:textColor="#000000"
+            android:layout_marginEnd="32dp"
+            android:gravity="center_vertical"
+            android:maxLines="1" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:contentDescription="@string/Icon1"
+            android:src="@drawable/weather_91"
+            android:layout_marginEnd="32dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:tint="@android:color/holo_red_dark" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Description1"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Tuesday"
+            android:textColor="#000000"
+            android:layout_marginEnd="32dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:contentDescription="@string/Icon1"
+            android:src="@drawable/rain"
+            android:layout_marginEnd="32dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:tint="@android:color/holo_red_dark" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Description2"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Wednesday"
+            android:textColor="#000000"
+            android:layout_marginEnd="32dp"
+            android:gravity="center_vertical"
+            android:maxLines="1" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:contentDescription="@string/Icon1"
+            android:src="@drawable/rain"
+            android:layout_marginEnd="32dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:tint="@android:color/holo_red_dark" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Description3"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <!-- Thursday -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Thursday"
+            android:textColor="#000000"
+            android:layout_marginEnd="32dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:contentDescription="@string/Icon1"
+            android:src="@drawable/scatterthunder"
+            android:layout_marginEnd="32dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:tint="@android:color/holo_red_dark" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Scattered_Showers"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <!-- Friday -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Friday"
+            android:textColor="#000000"
+            android:layout_marginEnd="32dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:contentDescription="@string/Icon1"
+            android:src="@drawable/weather_91"
+            android:layout_marginEnd="32dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:tint="@android:color/holo_red_dark" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Mostly_Cloudy"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <!-- Saturday -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Saturday"
+            android:textColor="#000000"
+            android:layout_marginEnd="32dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:contentDescription="@string/Icon1"
+            android:src="@drawable/weather_91"
+            android:layout_marginEnd="32dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:tint="@android:color/holo_red_dark" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Description1"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <!-- Sunday -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Sunday"
+            android:textColor="#000000"
+            android:layout_marginEnd="32dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:contentDescription="@string/Icon1"
+            android:src="@drawable/thunderstorm_icon_14"
+            android:layout_marginEnd="32dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:tint="@android:color/holo_red_dark" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Thunderstorms"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Monday"
+            android:textColor="#000000"
+            android:layout_marginEnd="32dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:contentDescription="@string/Icon1"
+            android:src="@drawable/scatterthunder"
+            android:layout_marginEnd="32dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:tint="@android:color/holo_red_dark" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Scattered_Thunderstorms"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        tools:ignore="UseCompoundDrawables,UselessParent">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Tuesday"
+            android:textColor="#000000"
+            android:layout_marginEnd="32dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:contentDescription="@string/Icon1"
+            android:src="@drawable/rain"
+            android:layout_marginEnd="32dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:tint="@android:color/holo_red_dark" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Showers"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        tools:ignore="UseCompoundDrawables,UselessParent">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Wednesday"
+            android:textColor="#000000"
+            android:layout_marginEnd="32dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:contentDescription="@string/Icon1"
+            android:src="@drawable/scatterthunder"
+            android:layout_marginEnd="32dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:tint="@android:color/holo_red_dark" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Scattered_Thunderstorms2"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+
+</LinearLayout>
