@@ -11,20 +11,10 @@
     android:orientation="vertical"
     tools:context=".WeatherActivity">
 
-    <androidx.fragment.app.FragmentContainerView
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:id="@+id/weather_fragment"
-        android:name="vn.edu.usth.weather.WeatherFragment"
-        android:layout_weight="1"
-        tools:layout="@layout/fragment_weather" />
+        android:layout_height="match_parent" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_container"
-        android:name="vn.edu.usth.weather.ForecastFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        tools:layout="@layout/fragment_forecast" />
 
 </LinearLayout>
