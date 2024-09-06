@@ -2,46 +2,31 @@ package vn.edu.usth.weather;
 
 import android.os.Bundle;
 import android.util.Log;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
-
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 
 public class WeatherActivity extends AppCompatActivity {
     private static final String TAG = "Weather";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_weather);
-
         HomeFragmentPagerAdapter adapter = new HomeFragmentPagerAdapter(this);
+
         ViewPager2 viewPager = findViewById(R.id.pager);
         viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(adapter);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
+
+        TabLayout tabLayout = findViewById(R.id.tab);
+        new TabLayoutMediator(tabLayout,viewPager, (tab, position) -> tab.setText(adapter.getPageTitle(position))).attach();
+
         Log.i(TAG, "Create");
 
-        //delete at practical 6
-//        ForecastFragment firstFragment = new ForecastFragment();
-//
-//        getSupportFragmentManager().beginTransaction().replace(R.id.main, firstFragment).commit();
     }
-
-
 
     @Override
     protected void onStart()
