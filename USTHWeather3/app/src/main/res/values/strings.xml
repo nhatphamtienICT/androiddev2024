@@ -3,23 +3,24 @@
     <string name="title_activity_weather">WeatherActivity</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name ="Monday">Mon</string>
-    <string name ="Tuesday">Tue</string>
-    <string name ="Wednesday">Wed</string>
-    <string name ="Thursday">Thu</string>
-    <string name ="Friday">Fri</string>
-    <string name ="Saturday">Sat</string>
-    <string name ="Sunday">Sun</string>
-    <color name = "siu">#E6E6FA</color>
-    <string name = "Icon1">Icon</string>
-    <string name = "Description1">Partly Cloudy\n24C - 31C</string>
-    <string name = "Description2">Showers\n24C - 30C</string>
-    <string name = "Description3">Rain\n22C - 23C</string>
-    <string name = "Scattered_Showers">Scattered Showers\n22C - 27C</string>
-    <string name = "Mostly_Cloudy">Mostly Cloudy\n22C - 30C</string>
-    <string name = "Thunderstorms">Thunderstorms\n25C - 28C</string>
-    <string name = "Scattered_Thunderstorms">Scattered Thunderstorms\n24C - 27C</string>
-    <string name = "Showers">Showers\n24C - 26C</string>
-    <string name = "Scattered_Thunderstorms2">Scattered Thunderstorms\n23C - 27C</string>
-
+    <string name="Monday">Mon</string>
+    <string name="Tuesday">Tue</string>
+    <string name="Wednesday">Wed</string>
+    <string name="Thursday">Thu</string>
+    <string name="Friday">Fri</string>
+    <string name="Saturday">Sat</string>
+    <string name="Sunday">Sun</string>
+    <color name="siu">#E6E6FA</color>
+    <string name="Icon1">Icon</string>
+    <string name="Description1">Partly Cloudy\n24C - 31C</string>
+    <string name="Description2">Showers\n24C - 30C</string>
+    <string name="Description3">Rain\n22C - 23C</string>
+    <string name="Scattered_Showers">Scattered Showers\n22C - 27C</string>
+    <string name="Mostly_Cloudy">Mostly Cloudy\n22C - 30C</string>
+    <string name="Thunderstorms">Thunderstorms\n25C - 28C</string>
+    <string name="Scattered_Thunderstorms">Scattered Thunderstorms\n24C - 27C</string>
+    <string name="Showers">Showers\n24C - 26C</string>
+    <string name="Scattered_Thunderstorms2">Scattered Thunderstorms\n23C - 27C</string>
+    <string name ="Weather_C">12C\nCloudy</string>
+    <string name ="Paris">Paris</string>
 </resources>
