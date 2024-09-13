@@ -9,5 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="custom_red">#FF0000</color>
     <color name = "light_green">#90EE90</color>
+    <color name="navy">#000080</color>
+
 
 </resources>

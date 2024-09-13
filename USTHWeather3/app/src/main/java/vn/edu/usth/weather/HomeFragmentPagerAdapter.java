@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class HomeFragmentPagerAdapter extends FragmentStateAdapter {
-    private final String[] titles = new String[] { "Hanoi", "Paris", "Toulouse" };
+    private final String[] titles = new String[] { "Hanoi, VietName", "Paris,France", "Toulouse" };
     public HomeFragmentPagerAdapter(AppCompatActivity activity) {
         super(activity);
     }

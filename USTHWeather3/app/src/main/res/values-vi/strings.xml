@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">USTH Weather</string>
+    <string name="title_activity_weather">WeatherActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Monday">Thứ 2</string>
+    <string name="Tuesday">Thứ 3</string>
+    <string name="Wednesday">Thứ 4</string>
+    <string name="Thursday">Thứ 5 </string>
+    <string name="Friday">Thứ 6</string>
+    <string name="Saturday">Thứ 7</string>
+    <string name="Sunday">Chủ Nhật</string>
+    <color name="siu">#E6E6FA</color>
+    <string name="Icon1">Icon</string>
+    <string name="Description1">Mây vừa\n24C - 31C</string>
+    <string name="Description2">Mưa rào\n24C - 30C</string>
+    <string name="Description3">Mưa\n22C - 23C</string>
+    <string name="Scattered_Showers">Mưa rải rác\n22C - 27C</string>
+    <string name="Mostly_Cloudy">Nhiều Mây\n22C - 30C</string>
+    <string name="Thunderstorms">Bão sấm sét\n25C - 28C</string>
+    <string name="Scattered_Thunderstorms">Bão rải rác\n24C - 27C</string>
+    <string name="Showers">Mưa rào\n24C - 26C</string>
+    <string name="Scattered_Thunderstorms2">Bão rải rác\n23C - 27C</string>
+    <string name="Weather_C">12C\nMây vừa</string>
+    <string name="Paris">Hà Nội</string>
+    <string name="TAB">THE TAB</string>
+</resources>

@@ -12,5 +12,10 @@ Student Info
 
 * Name: Phạm Tiến Nhật
 * ID: 22BI13346
-* Group ID: *Your Group ID here*
-* Project Name: *Your Project Name here*
+* Group ID: 13
+* Project Name: Facebook client
+
+
+
+
+
