@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_green"
+    android:background="@drawable/frame"
     android:id="@+id/weather_fragment"
     tools:context=".WeatherFragment">
 
@@ -13,21 +13,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Weather_C"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:textSize="30sp"
+        android:paddingStart="40dp"
+        android:paddingTop="32dp"
+        tools:ignore="RtlSymmetry" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/Icon1"
+        android:padding="16dp"
         android:src="@drawable/weather_91"
-        android:padding = "16dp"
-        app:tint="@android:color/holo_blue_dark"
-        android:layout_centerInParent="true"/>
+        app:tint="@android:color/holo_blue_dark" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Paris"
         android:layout_alignParentEnd="true"
+        android:textSize="30sp"
+        android:paddingTop="32dp"
+        android:paddingEnd="32dp"
         />
 
 </RelativeLayout>
