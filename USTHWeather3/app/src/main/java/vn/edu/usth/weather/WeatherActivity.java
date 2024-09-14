@@ -1,5 +1,6 @@
 package vn.edu.usth.weather;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,11 +11,15 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 public class WeatherActivity extends AppCompatActivity {
     private static final String TAG = "Weather";
+    private MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_weather);
+        mp = MediaPlayer.create(this,R.raw.wam_music);
+        mp.start();
+
         HomeFragmentPagerAdapter adapter = new HomeFragmentPagerAdapter(this);
 
         ViewPager2 viewPager = findViewById(R.id.pager);
@@ -59,6 +64,13 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onDestroy()
     {
         super.onDestroy();
+        if(mp != null){
+            if(mp.isPlaying()){
+                mp.stop();
+            }
+            mp.release();
+            mp = null;
+        }
         Log.i(TAG, "Destroy");
     }
 }
