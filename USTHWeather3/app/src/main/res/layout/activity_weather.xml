@@ -10,7 +10,11 @@
     android:paddingRight="16dp"
     android:orientation="vertical"
     tools:context=".WeatherActivity">
-
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme = "@style/Theme.AppCompat.DayNight.DarkActionBar"
+        android:id = "@+id/tool_bar"/>
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab"
         android:layout_width="match_parent"
@@ -21,6 +25,5 @@
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 
 </LinearLayout>

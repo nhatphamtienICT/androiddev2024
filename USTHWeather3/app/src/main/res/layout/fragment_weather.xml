@@ -9,15 +9,7 @@
     tools:context=".WeatherFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Weather_C"
-        android:layout_alignParentStart="true"
-        android:textSize="30sp"
-        android:paddingStart="40dp"
-        android:paddingTop="32dp"
-        tools:ignore="RtlSymmetry" />
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -25,16 +17,32 @@
         android:contentDescription="@string/Icon1"
         android:padding="16dp"
         android:src="@drawable/weather_91"
-        app:tint="@android:color/holo_blue_dark" />
-
-    <TextView
+        app:tint="@android:color/holo_blue_dark"
+        android:layout_centerInParent="true"/>
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Paris"
-        android:layout_alignParentEnd="true"
-        android:textSize="30sp"
-        android:paddingTop="32dp"
-        android:paddingEnd="32dp"
-        />
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_marginTop="32dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Weather_C"
+            android:textSize="24sp"
+            tools:ignore="RtlSymmetry"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Paris"
+            android:textSize="24sp"
+            />
+
+    </LinearLayout>
 
 </RelativeLayout>
