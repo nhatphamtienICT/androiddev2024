@@ -3,6 +3,9 @@ package vn.edu.usth.weather;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,12 +22,22 @@ import com.google.android.material.tabs.TabLayoutMediator;
 public class WeatherActivity extends AppCompatActivity {
     private static final String TAG = "Weather";
     private MediaPlayer mp;
-
+    private Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_weather);
+
+         handler = new Handler(Looper.getMainLooper()) {
+            @Override
+            public void handleMessage(Message msg) {
+            // This method is executed in main thread
+                String content = msg.getData().getString("server_response");
+                Toast.makeText(WeatherActivity.this, content, Toast.LENGTH_SHORT).show();
+            }
+        };
+
+
 
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
@@ -54,7 +67,8 @@ public class WeatherActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_search) {
-            Toast.makeText(this, "Tomorrow", Toast.LENGTH_SHORT).show();
+            // Call function to run network simulation
+            networkSimulationWithThread();
             return true;
         } else if (id == R.id.settings) {
             // Start the new activity for settings
@@ -62,8 +76,33 @@ public class WeatherActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
+
+        private void networkSimulationWithThread() {
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        // Simulate long network access (5 seconds delay)
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    // Assume we got some data from the server
+                    Bundle bundle = new Bundle();
+                    bundle.putString("server_response", "Sample JSON from thread");
+
+                    // Notify the main thread via handler
+                    Message msg = new Message();
+                    msg.setData(bundle);
+                    handler.sendMessage(msg); // Send message to Handler
+                }
+            });
+            t.start();
+        }
 
 
     @Override
