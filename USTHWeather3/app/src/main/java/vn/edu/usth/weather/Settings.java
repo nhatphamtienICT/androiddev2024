@@ -1,6 +1,7 @@
 package vn.edu.usth.weather;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -65,14 +66,13 @@ public class Settings extends Fragment {
         Button backButton = view.findViewById(R.id.back_button);
         backButton.setOnClickListener(v -> {
             // Navigate back to the main fragment
-            swapFragment(new Settings());
+            swapFragment(new WeatherAndForecastFragment());
         });
         return view;
     }
-    private void swapFragment(Settings settings){
-        Settings newSettings = new Settings();
+    private void swapFragment(Fragment fragment){
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main, newSettings);
+        fragmentTransaction.replace(R.id.settingfrag, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
