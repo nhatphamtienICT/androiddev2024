@@ -44,5 +44,6 @@
     <string name="enter_url">Enter url</string>
     <string name="enter_sleep_time_in_second">Enter sleep time in second</string>
     <string name="run">run</string>
+    <string name="background_forecast">background forecast</string>
 
 </resources>

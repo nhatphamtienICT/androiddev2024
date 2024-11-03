@@ -43,7 +43,6 @@ public class PrefActivity extends AppCompatActivity {
             String sleeptime = time.getText().toString();
             task.execute(sleeptime);
 
-
         });
     }
     @SuppressLint("StaticFieldLeak")
