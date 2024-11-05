@@ -21,6 +21,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -53,6 +57,8 @@ public class WeatherActivity extends AppCompatActivity {
 //        };
 
 
+
+
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
@@ -72,73 +78,92 @@ public class WeatherActivity extends AppCompatActivity {
         Log.i(TAG, "Create");
     }
 
-    private class asyncTask extends AsyncTask<String, Void, Bitmap> {
-        @Override
-        protected Bitmap doInBackground(String... urls) {
-            URL url;
-            try {
-                url = new URL("https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png");
-            } catch (MalformedURLException e) {
-                throw new RuntimeException(e);
-            }
-            HttpURLConnection connection =
-                    null;
-            try {
-                connection = (HttpURLConnection) url.openConnection();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            try {
-                connection.setRequestMethod("GET");
-            } catch (ProtocolException e) {
-                throw new RuntimeException(e);
-            }
-            connection.setDoInput(true);
-            // allow reading response code and response dataconnection.
-            try {
-                connection.connect();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            int response = 0;
-            try {
-                response = connection.getResponseCode();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            Log.i("USTHWeather", "The response is: " + response);
-            InputStream is;
-            try {
-                is = connection.getInputStream();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            // Process image response
-            Bitmap bitmap = BitmapFactory.decodeStream(is);
-            connection.disconnect();
-            return bitmap;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            // do some preparation here, if needed
-        }
-
-
-        @Override
-        protected void onPostExecute(Bitmap result) {
-            if (result != null) {
-                ImageView logo = findViewById(R.id.background_image_view); // Ensure your ForecastFragment has this ImageView
-                logo.setImageBitmap(result);
-            } else {
-                Toast.makeText(WeatherActivity.this, "Failed to download image", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-
+    private void imageDownload(){
+        RequestQueue queue = Volley.newRequestQueue(this);
+        // a listener (kinda similar to onPostExecute())
+        Response.Listener<Bitmap> listener =
+                new Response.Listener<Bitmap>() {
+                    @Override
+                    public void onResponse(Bitmap response) {
+                        ImageView iv = (ImageView) findViewById(R.id.background_image_view);
+                        iv.setImageBitmap(response);
+                    }
+                };
+        // a simple request to the required image
+        ImageRequest imageRequest = new ImageRequest(
+                "https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png",
+                listener, 0, 0, ImageView.ScaleType.CENTER,
+                Bitmap.Config.ARGB_8888, null);
+        // go!
+        queue.add(imageRequest);
     }
+
+//    private class asyncTask extends AsyncTask<String, Void, Bitmap> {
+//        @Override
+//        protected Bitmap doInBackground(String... urls) {
+//            URL url;
+//            try {
+//                url = new URL("https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png");
+//            } catch (MalformedURLException e) {
+//                throw new RuntimeException(e);
+//            }
+//            HttpURLConnection connection =
+//                    null;
+//            try {
+//                connection = (HttpURLConnection) url.openConnection();
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//            try {
+//                connection.setRequestMethod("GET");
+//            } catch (ProtocolException e) {
+//                throw new RuntimeException(e);
+//            }
+//            connection.setDoInput(true);
+//            // allow reading response code and response dataconnection.
+//            try {
+//                connection.connect();
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//
+//            int response = 0;
+//            try {
+//                response = connection.getResponseCode();
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//            Log.i("USTHWeather", "The response is: " + response);
+//            InputStream is;
+//            try {
+//                is = connection.getInputStream();
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//
+//            // Process image response
+//            Bitmap bitmap = BitmapFactory.decodeStream(is);
+//            connection.disconnect();
+//            return bitmap;
+//        }
+//
+//        @Override
+//        protected void onPreExecute() {
+//            // do some preparation here, if needed
+//        }
+//
+//
+//        @Override
+//        protected void onPostExecute(Bitmap result) {
+//            if (result != null) {
+//                ImageView logo = findViewById(R.id.background_image_view);
+//                logo.setImageBitmap(result);
+//            } else {
+//                Toast.makeText(WeatherActivity.this, "Failed to download image", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -152,7 +177,8 @@ public class WeatherActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_search) {
             // Call function to run network simulation
-            new asyncTask().execute();
+            //new asyncTask().execute();
+            imageDownload();
             return true;
         } else if (id == R.id.settings) {
             // Start the new activity for settings
