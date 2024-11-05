@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,10 +24,15 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -76,6 +82,37 @@ public class WeatherActivity extends AppCompatActivity {
 
 
         Log.i(TAG, "Create");
+    }
+
+    private void JsonTest(){
+        TextView tv = findViewById(R.id.show_text);
+        String url = "https://mocki.io/v1/df46395d-6e53-4533-a024-da16088667b8";
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+                    int temp = response.getInt("Temperature in Celsius");
+                    String condition = response.getString("Condition");
+                    //int id = response.getInt("id");
+                    String title = response.getString("title");
+                    Boolean storm = response.getBoolean("Storm");
+
+                    tv.setText("Temparature in Celsius: "+temp+"\nWeather Condition: "+condition+"\nTitle: "+title+"\nStorm? :"+storm);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                tv.setText("error");
+            }
+        });
+        RequestQueue requestQueueTwo = Volley.newRequestQueue(this);
+        requestQueueTwo.add(jsonObjectRequest);
     }
 
     private void imageDownload(){
@@ -175,7 +212,7 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_search) {
+        if (id == R.id.action_download) {
             // Call function to run network simulation
             //new asyncTask().execute();
             imageDownload();
@@ -184,6 +221,9 @@ public class WeatherActivity extends AppCompatActivity {
             // Start the new activity for settings
             Intent intent = new Intent(this, PrefActivity.class);
             startActivity(intent);
+            return true;
+        } else if(id == R.id.action_search){
+            JsonTest();
             return true;
         }
 

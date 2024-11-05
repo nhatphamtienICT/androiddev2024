@@ -22,24 +22,25 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:orientation="vertical"
         android:layout_marginTop="32dp"
         android:gravity="center">
 
         <TextView
+            android:id="@+id/show_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Weather_C"
             android:textSize="24sp"
             tools:ignore="RtlSymmetry"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Paris"
+            android:textColor="@color/black"
             android:textSize="24sp"
             />
 
